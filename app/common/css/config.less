@@ -1,0 +1,168 @@
+
+@frameworkPath:         "../../../framework";
+@appPath:               "../..";
+
+// TYPOGRAPHY
+// --------------------------------------------------
+
+// font size
+@baseFontSize:          13px;
+@baseLineHeight:        round(@baseFontSize*1.35);
+
+// font family
+@baseFontFamily:        Arial, sans-serif;
+@serifFontFamily:		Georgia, "Times New Roman", Times, serif;
+@sansSerifFontFamily:   @baseFontFamily;
+@monospaceFontFamily: 	Menlo, Monaco, "Courier New", monospace;
+
+// heading size
+@h1Size:				30px;
+@h2Size:				@h1Size - 6;
+@h3Size:				@h2Size - 6;
+@h4Size:				14px;
+@h5Size:				12px;
+@h6Size:				11px;
+@headerFontWeight:		normal;
+
+// main colors
+@textColor:             #333;
+@headerColor:			#333;
+@header6Color:			#777;
+@smallColor:			@header6Color;
+@mutedColor: 			@smallColor;
+
+// hr colors
+@hrColor:				#e5e5e5;
+@hrShadowColor:			#fff;
+
+// blockquote
+@blockquoteFontSize:	@baseFontSize;
+@blockquoteBorderColor:	#eee;
+@blockquoteSmallColor:	#777;
+
+// links
+@linkColor: 			#1b80be;
+@linkVisitedColor:		@linkColor;
+@linkHoverColor:		lighten(@linkColor, 20%);
+@linkActiveColor:		@linkHoverColor;
+
+// code & pre
+@preColor:				@textColor;
+@preFontSize:			12px;
+@preBackgroundColor:	#f5f5f5;
+@preBorderColorFallback:#ccc;
+@preBorderColor:		rgba(0,0,0,.15);
+@codeColor:				#d14;
+@codeBackgroundColor:	#f7f7f9;
+@codeBorderColor:		#e1e1e8;
+
+// tables
+@tableBorderColor:		#ddd;
+@tableBorderSize:		1px;
+@tableZebraBackground:	#f9f9f9;
+@tableHoverBackground:  darken(@tableZebraBackground, 2%);
+
+
+// FORMS
+// --------------------------------------------------
+
+// legend
+@legendColor:			@headerColor;
+@lenendBorderColor:		#eee;
+
+// label
+@labelColor:			@headerColor;
+
+// inputs
+@inputColor:			#555;
+@inputBorderColor:		#ccc;
+@fileBackgroundColor:	#fff;
+@selectBackgroundColor:	@fileBackgroundColor;
+
+// placeholder
+@formPlaceholderColor:	#777;
+
+// disabled
+@disabledBackground:	#f5f5f5;
+@disabledBorderColor:	#ddd;
+
+// uneditable
+@formUneditableBackground: #fff;
+@formUneditableBorder:	#eee;
+
+// help block
+@helpBlockColor:		#8f8d8c;
+
+// input groups
+@formAddOnColor:		@helpBlockColor;
+@formAddOnTextShadow:	#fff;
+@formAddOnBackground:	#f5f5f5;
+@formAddOnBorderColor:	#ccc;
+@formActiveAddOnBackground: #A9DBA9;
+
+// actions
+@formActionsBackground:	#f5f5f5;
+@formActionsBorderColor:#ddd;
+
+// buttons
+@buttonColor:			@headerColor;
+@buttonBackground:		#fff;
+@buttonBorder:			darken(@buttonBackground, 13%);
+@buttonHoverColor:		@buttonColor;
+
+// button colors
+@defaultButtonColor:	#fff;
+@primaryButtonBackground: #049CDB;
+@warningButtonBackground: #FAA732;
+@dangerButtonBackground:  #bd362f;
+@successButtonBackground: #51a351;
+@infoButtonBackground:    #2f96b4;
+@inverseButtonBackground: @buttonColor;
+
+
+// STATES
+// --------------------------------------------------
+
+@warningText:             #c09853;
+@warningBackground:       #fcf8e3;
+@warningBorder:           darken(spin(@warningBackground, -10), 3%);
+
+@errorText:               #b94a48;
+@errorBackground:         #f2dede;
+@errorBorder:             darken(spin(@errorBackground, -10), 3%);
+
+@successText:             #468847;
+@successBackground:       #dff0d8;
+@successBorder:           darken(spin(@successBackground, -10), 5%);
+
+@infoText:                #3a87ad;
+@infoBackground:          #d9edf7;
+@infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+
+// 12-COLUMN GRID
+// --------------------------------------------------
+
+// Default 940px grid
+@gridColumns:             12;
+@gridColumnWidth:         60px;
+@gridGutterWidth:         20px;
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+// Fluid grid
+@fluidGridColumnWidth:    6.382978723%;
+@fluidGridGutterWidth:    2.127659574%;
+
+
+// 16-COLUMN GRID
+// --------------------------------------------------
+
+/*// Default 940px grid
+@gridColumns:             16;
+@gridColumnWidth:         40px;
+@gridGutterWidth:         20px;
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+// Fluid grid
+@fluidGridColumnWidth:    4.255319149%;
+@fluidGridGutterWidth:    2.127659574%;*/

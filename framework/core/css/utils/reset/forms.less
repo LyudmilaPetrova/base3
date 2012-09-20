@@ -1,0 +1,47 @@
+
+// Font size in all browsers, margin changes, misc consistency
+button, input, select, textarea {
+	margin: 0;
+	font-size: 100%;
+	vertical-align: middle;
+}
+
+button, input {
+	line-height: normal; // FF3/4 have !important on line-height in UA stylesheet
+
+	.ie6 &, .ie7 & {
+		overflow: visible; // Inner spacing ie IE6/7
+	}
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner { // Inner padding and border oddities in FF3/4
+	padding: 0;
+	border: 0;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	cursor: pointer; // Cursors on all buttons applied consistently
+	-webkit-appearance: button; // Style clicable inputs in iOS
+}
+
+input[type="search"] { // Appearance in Safari/Chrome
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	   -moz-box-sizing: content-box;
+            box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+	-webkit-appearance: none; // Inner-padding issues in Chrome OSX, Safari 5
+}
+
+textarea {
+	overflow: auto; // Remove vertical scrollbar in IE6-9
+	vertical-align: top; // Readability and alignment cross-browser
+	resize: none;
+}

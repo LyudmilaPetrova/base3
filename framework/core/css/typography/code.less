@@ -1,0 +1,45 @@
+// Code.less
+// Code typography styles for the <code> and <pre> elements
+// --------------------------------------------------------
+
+// Inline and block code styles
+code, pre {
+	padding: 0 3px 2px;
+	#font > #family > .monospace;
+	font-size: @baseFontSize - 1;
+	color: @preColor;
+	.border-radius(3px);
+}
+
+code {
+	padding: 3px 4px;
+	color: @codeColor;
+	background-color: @codeBackgroundColor;
+	border: 1px solid @codeBorderColor;
+}
+
+pre {
+	display: block;
+	padding: (@baseLineHeight - 1) / 2;
+	margin: 0 0 @baseLineHeight / 2;
+	font-size: @preFontSize;
+	line-height: @baseLineHeight;
+	background-color: @preBackgroundColor;
+	border: 1px solid @preBorderColorFallback; // fallback for IE7-8
+	border: 1px solid @preBorderColor;
+	.border-radius(4px);
+	white-space: pre;
+	white-space: pre-wrap;
+	word-break: break-all;
+
+	// Make prettyprint styles more spaced out for readability
+	&.prettyprint {
+		margin-bottom: @baseLineHeight;
+	}
+
+	// Account for some code outputs that place code tags in pre tags
+	code {
+		padding: 0;
+		background-color: transparent;
+	}
+}

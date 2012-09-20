@@ -1,0 +1,37 @@
+core = 7.x
+description = Base2 is a less-based clear theme.
+engine = phptemplate
+name = Base2
+
+; Regions =====================================================================
+
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+regions[content] = Content
+regions[header] = Header
+regions[help] = Help
+regions[footer] = Footer
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[highlighted] = Highlighted
+
+regions[footer_counters] = Footer counters
+regions[footer_banners] = Footer banners
+regions[ext_left] = Ext Left
+regions[ext_right] = Ext Right
+
+regions[line3] = Line3
+regions[promo_left] = Promo Left
+regions[promo_right] = Promo Right
+
+
+; Stylesheets =================================================================
+
+;stylesheets[all][] = css/reset.css
+;stylesheets[screen][] = css/drupal/drupal.css.less
+;stylesheets[screen][] = css/main.css.less
+;stylesheets[screen][] = colorbox/colorbox.css
+;scripts[] = js/placeholder.js
+
+stylesheets[all][] = css/style.less
+

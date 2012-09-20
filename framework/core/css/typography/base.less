@@ -1,0 +1,119 @@
+
+// Headings, body text, lists, code, and more for a versatile and durable typography system
+// ----------------------------------------------------------------------------------------
+
+// BODY TEXT
+
+html { font-size:100.01%; }
+
+body, input, textarea, select, label {
+    font-size: @baseFontSize;
+    line-height: @baseLineHeight;
+    font-family: @baseFontFamily;
+    color: @textColor;
+}
+
+p {
+	margin: 0 0 @baseLineHeight / 2;
+
+	small {
+		font-size: @baseFontSize - 2;
+		color: @smallColor;
+	}
+}
+
+
+// HEADINGS
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-weight: @headerFontWeight;
+	color: @headerColor;
+	text-rendering: optimizelegibility; // Fix the character spacing for headings
+
+	small {
+		font-weight: normal;
+		color: @smallColor;
+	}
+
+	img {
+		margin: 0;
+	}
+}
+
+h1 {
+	font-size: @h1Size;
+	line-height: @baseLineHeight * 2;
+
+	small {
+		font-size: @h1Size * 0.6;
+	}
+}
+
+h2 {
+	font-size: @h2Size;
+	line-height: @baseLineHeight * 2;
+	small {
+		font-size: @h2Size * 0.6;
+	}
+}
+
+h3 {
+    font-size: @h3Size;
+  	line-height: @baseLineHeight * 1.5;
+
+  	small {
+    	font-size: @h3Size * 0.72;
+  	}
+}
+
+h4, h5, h6 {
+	line-height: @baseLineHeight;
+}
+
+h4 {
+	font-size: @h4Size;
+
+	small {
+    	font-size: @hsSize * 0.85;
+	}
+}
+
+h5 {
+  	font-size: @h5Size;
+}
+
+h6 {
+  	font-size: @h6Size;
+  	color: @header6Color;
+  	text-transform: uppercase;
+}
+
+
+// Links
+a, a:visited {
+    color: @linkColor;
+    text-decoration: underline;
+    font: inherit;
+
+	&.no-underline {
+		text-decoration: none;
+	}
+
+	u {
+		text-decoration: underline;
+	}
+}
+
+a:visited {
+	color: @linkVisitedColor;
+}
+
+/*a:focus, */a:hover {
+    color: @linkHoverColor;
+    cursor: pointer;
+}
+
+a:active {
+	color: @linkActiveColor;
+}

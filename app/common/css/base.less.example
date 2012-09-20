@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "config.less"; // Modify this for custom colors, font-sizes, etc
+
+// CSS Utils
+@import "@{frameworkPath}/core/css/utils/reset.less";
+@import "@{frameworkPath}/core/css/utils/clearfix.less";
+@import "@{frameworkPath}/core/css/utils/ie.less";
+@import "@{frameworkPath}/core/css/utils/css3.less";
+@import "@{frameworkPath}/core/css/utils/gradients.less";
+
+// Primary components (usually provides functions only)
+@import "@{frameworkPath}/jquery-placeholder/css/placehodler.less";
+//@import "@{frameworkPath}/loaders/css/loaders.less";
+
+// Typography base
+@import "@{frameworkPath}/core/css/typography/functions.less";
+@import "@{frameworkPath}/core/css/typography/base.less";
+//@import "@{frameworkPath}/core/css/typography/tables.less";
+//@import "@{frameworkPath}/core/css/typography/text-block.less";
+@import "@{frameworkPath}/core/css/typography/classes.less";
+
+// Typography everywhere
+//@import "@{frameworkPath}/core/css/typography/lists.less";
+//@import "@{frameworkPath}/core/css/typography/misc.less";
+//@import "@{frameworkPath}/core/css/typography/code.less";
+
+// Typography in a text blocks
+.text-block {
+	//@import "@{frameworkPath}/core/css/typography/lists.less";
+	//@import "@{frameworkPath}/core/css/typography/misc.less";
+	//@import "@{frameworkPath}/core/css/typography/code.less";
+}
+
+// Layout
+@import "@{frameworkPath}/core/css/layout/base.less";
+
+// 12 column grid system and page structure
+/*@import "@{frameworkPath}/core/css/layout/12-column/functions.less";
+@import "@{frameworkPath}/core/css/layout/12-column/grid.less";*/
+
+// 12 column respoisive web
+/*@import "@{frameworkPath}/responsive/css/12-column/max-480px.less";
+@import "@{frameworkPath}/responsive/css/12-column/max-768px.less";
+@import "@{frameworkPath}/responsive/css/12-column/768px-980px.less";
+@import "@{frameworkPath}/responsive/css/12-column/max-980px.less";
+@import "@{frameworkPath}/responsive/css/12-column/min-980px.less";
+@import "@{frameworkPath}/responsive/css/12-column/min-1200px.less";*/
+
+// 16 column grid system and page structure
+//@import "@{frameworkPath}/core/css/layout/16-column/functions.less";
+//@import "@{frameworkPath}/core/css/layout/16-column/grid.less";
+
+// 16 column respoisive web
+/*@import "@{frameworkPath}/responsive/css/16-column/max-480px.less";
+@import "@{frameworkPath}/responsive/css/16-column/max-768px.less";
+@import "@{frameworkPath}/responsive/css/16-column/768px-980px.less";
+@import "@{frameworkPath}/responsive/css/16-column/max-980px.less";
+@import "@{frameworkPath}/responsive/css/16-column/min-980px.less";
+@import "@{frameworkPath}/responsive/css/16-column/min-1200px.less";*/
+
+// Forms
+@import "@{frameworkPath}/core/css/forms/base.less";
+@import "@{frameworkPath}/core/css/forms/checkboxes.less";
+@import "@{frameworkPath}/core/css/forms/focus-state.less";
+@import "@{frameworkPath}/core/css/forms/input-sizes.less";
+@import "@{frameworkPath}/core/css/forms/disabled-state.less";
+@import "@{frameworkPath}/core/css/forms/feedback-states.less";
+@import "@{frameworkPath}/core/css/forms/form-actions.less";
+@import "@{frameworkPath}/core/css/forms/help-text.less";
+@import "@{frameworkPath}/core/css/forms/input-groups.less";
+@import "@{frameworkPath}/core/css/forms/form-aligment.less";
+@import "@{frameworkPath}/core/css/forms/buttons.less";
+@import "@{frameworkPath}/core/css/forms/button-groups.less";
+
+// Secondary components
+@import "@{frameworkPath}/jquery-fileinput/css/file-input.less";
+
+
+// -------------------
+
+
+//@import "@{appPath}/components/example/css/example.less";

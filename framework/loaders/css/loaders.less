@@ -1,0 +1,130 @@
+/*
+
+Example usage:
+
+.loader-16 { .loader(16px, #999, 1px); }
+.loader-32 { .loader(32px, #999, 2px); }
+.loader-64 { .loader(64px, #999, 3px); }
+
+OR (more compact in generated CSS and more flexible):
+
+.loader i {
+	.loader-inner();
+	.loader-color(#999);
+	.loader-speed(1s);
+}
+
+.loader-16 {
+	.loader-wrap(16px);
+	i { .loader-size(16px, 1px); }
+}
+
+.loader-32 {
+	.loader-wrap(32px);
+	i { .loader-size(32px, 2px); }
+}
+
+.loader-64 {
+	.loader-wrap(64px);
+	i { .loader-size(64px, 3px); }
+}
+
+*/
+
+.animation-loader-spin() {
+	from { .rotate(0deg); }
+	to { .rotate(360deg); }
+}
+
+@-webkit-keyframes loader-spin {.animation-loader-spin;}
+   @-moz-keyframes loader-spin {.animation-loader-spin;}
+    @-ms-keyframes loader-spin {.animation-loader-spin;}
+     @-o-keyframes loader-spin {.animation-loader-spin;}
+        @keyframes loader-spin {.animation-loader-spin;}
+
+
+.loader(@size, @color: #999, @width: 5px, @speed: 1s) {
+	& {
+		.loader-wrap(@size);
+	}
+
+	i {
+		.loader-base(@size, @color, @width, @speed);
+	}
+}
+
+.loader-wrap(@size) {
+	display: block;
+	width: @size;
+	height: @size;
+	overflow: hidden;
+}
+
+.loader-inner() {
+	position: relative;
+	display: block;
+
+	&:before {
+		content: '';
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+		border-style: solid;
+		border-top-color: transparent;
+		.rotate(45deg);
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		display: block;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-color: transparent;
+	}
+}
+
+.loader-color(@color) {
+	&:before {
+		border-color: @color;
+		border-top-color: transparent;
+	}
+
+	&:after {
+		border-left-color: @color;
+	}
+}
+
+.loader-speed(@speed) {
+	.animation(loader-spin @speed infinite linear);
+}
+
+.loader-size(@size, @width: 5px) {
+	top: @width*3;
+	left: @width*3;
+	width: @size - @width * 6;
+	height: @size - @width * 6;
+
+	&:before {
+		top: @width * -1;
+		left: @width * -1;
+		border-width: @width;
+		.border-radius(@size);
+	}
+
+	&:after {
+		margin-top: round(@width * -2.49);
+		border-width: @width*2;
+	}
+}
+
+.loader-base(@size, @color: #999, @width: 5px, @speed: 1s) {
+	.loader-inner();
+	.loader-color(@color);
+	.loader-speed(@speed);
+	.loader-size(@size, @width);
+}

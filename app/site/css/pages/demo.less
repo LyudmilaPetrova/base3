@@ -1,0 +1,45 @@
+
+.show-grid {
+	#grid > .show();
+}
+
+.docs-input-sizes select,
+.docs-input-sizes input[type="text"] {
+	display: block;
+	margin-bottom: @baseLineHeight / 2;
+}
+
+.loader {
+	margin: 20px auto;
+
+	i {
+		.loader-inner();
+		.loader-color(#999);
+		.loader-speed(1s);
+	}
+}
+
+.loader-16 {
+	.loader-wrap(16px);
+	i { .loader-size(16px, 1px); }
+}
+
+.loader-32 {
+	.loader-wrap(32px);
+	i { .loader-size(32px, 2px); }
+}
+
+.loader-64 {
+	.loader-wrap(64px);
+	i { .loader-size(64px, 3px); }
+}
+
+.loader-128 {
+	.loader-wrap(128px);
+	i { .loader-size(128px, 5px); }
+}
+
+.loader-256 {
+	.loader-wrap(256px);
+	i { .loader-size(256px, 10px); }
+}
