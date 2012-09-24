@@ -31,7 +31,7 @@ regions[promo_right] = Promo Right
 ;stylesheets[screen][] = css/drupal/drupal.css.less
 ;stylesheets[screen][] = css/main.css.less
 ;stylesheets[screen][] = colorbox/colorbox.css
-;scripts[] = js/placeholder.js
+scripts[] = js/call.js
 
 stylesheets[all][] = css/style.less
 

@@ -1,6 +1,6 @@
 <?php
 
-drupal_theme_rebuild();
+// drupal_theme_rebuild();
 
 /**
  * Implements hook_css_alter().
@@ -18,18 +18,18 @@ drupal_theme_rebuild();
  * - simpletest.css
  * - toolbar.css
  */
-function base2_css_alter(&$css) {
+function base3_css_alter(&$css) {
   $exclude = array(
-    'modules/system/system.base.css' => FALSE,
+//    'modules/system/system.base.css' => FALSE,
   //  'modules/system/admin.css' => FALSE,
   //  'modules/system/maintenance.css' => FALSE,
   //  'modules/system/system.css' => FALSE,
   //  'modules/system/system.admin.css' => FALSE,
     
   //  'modules/system/system.maintenance.css' => FALSE,
-    'modules/system/system.menus.css' => FALSE,
+//    'modules/system/system.menus.css' => FALSE,
   //  'modules/system/system.messages.css' => FALSE,
-    'modules/system/system.theme.css' => FALSE,
+//    'modules/system/system.theme.css' => FALSE,
   //  'misc/vertical-tabs.css' => FALSE,
   //  'modules/aggregator/aggregator.css' => FALSE,
   //  'modules/block/block.css' => FALSE,
@@ -56,12 +56,12 @@ function base2_css_alter(&$css) {
   $css = array_diff_key($css, $exclude);
 }
 
-function base2_preprocess_html(&$vars) {
+function base3_preprocess_html(&$vars) {
 //  $vars['classes_array'][] = 'debug'; $vars['classes_array'][] = 'debug-index';
  
 }
 
-function base2_preprocess_page(&$vars) {
+function base3_preprocess_page(&$vars) {
   global $base_path;
   $vars['path_to_theme'] = $base_path.drupal_get_path('theme', variable_get('theme_default', NULL));
   
@@ -83,11 +83,11 @@ function base2_preprocess_page(&$vars) {
 }
 
 
-function base2_preprocess_block(&$variables) {
+function base3_preprocess_block(&$variables) {
  $variables['title_attributes_array']['class'][] = "block-title";
 }
 
-function base2_preprocess_node(&$variables) {
+function base3_preprocess_node(&$variables) {
   $variables['title_attributes_array']['class'][] = "node-title";
   
   $theme_path = drupal_get_path('theme', 'dao');
@@ -110,14 +110,14 @@ function base2_preprocess_maintenance_page(&$variables)
   $variables['theme_path'] = drupal_get_path('theme', 'dao');
 } */
 
-function base2_preprocess_field(&$vars, $hook) {
+function base3_preprocess_field(&$vars, $hook) {
   // Add specific suggestions that can override the default implementation.
   array_unshift($vars['theme_hook_suggestions'], 'field__' . $vars['element']['#field_type']);
   array_unshift($vars['theme_hook_suggestions'], 'field__' . $vars['element']['#field_name']);
  // print_r($vars['element']['#field_type']);
 }
 
-function base2_field__image($vars) {
+function base3_field__image($vars) {
   $output = '';
   
  // print_r($vars);
@@ -154,7 +154,7 @@ function base2_field__image($vars) {
   return $output;
 }
 
-function base2_colorbox_imagefield($variables) {
+function base3_colorbox_imagefield($variables) {
   $class = array('colorbox');
   $class[] = 'thumbnail';
 
@@ -181,7 +181,7 @@ function base2_colorbox_imagefield($variables) {
   return l($image, $variables['path'], $options);
 }
 
-function base2_field__text_long($vars) {
+function base3_field__text_long($vars) {
   $output = '';
 
   // Render the label, if it's not hidden.
@@ -205,7 +205,7 @@ function base2_field__text_long($vars) {
 
 
 
-function base2_menu_link__main_menu($variables) 
+function base3_menu_link__main_menu($variables) 
 {
   //print_r($element['#attributes']);
   
@@ -234,7 +234,7 @@ function base2_menu_link__main_menu($variables)
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n" . $menu_delim;
 }
 
-function base2_pager($variables) {
+function base3_pager($variables) {
   $tags = $variables['tags'];
   $element = $variables['element'];
   $parameters = $variables['parameters'];
@@ -347,7 +347,7 @@ function base2_pager($variables) {
   }
 }
 
-function base2_file_link($variables) {
+function base3_file_link($variables) {
   $file = $variables['file'];
   $icon_directory = $variables['icon_directory'];
 
@@ -374,7 +374,7 @@ function base2_file_link($variables) {
   return '<span class="file">' . $icon . ' ' . l($link_text, $url, $options) . ' (' . format_size($file->filesize) .')'.'</span>';
 }
 
-function base2_file_formatter_table($variables) {
+function base3_file_formatter_table($variables) {
   //print_r($variables);
   
   $rows = array();
@@ -387,7 +387,7 @@ function base2_file_formatter_table($variables) {
   return empty($rows) ? '' : theme('table', array('rows' => $rows));
 }
 
-function base2_button($variables) {
+function base3_button($variables) {
   $element = $variables['element'];
   $element['#attributes']['type'] = 'submit';
   element_set_attributes($element, array('id', 'name', 'value'));
