@@ -1,7 +1,7 @@
 core = 7.x
-description = Base2 is a less-based clear theme.
+description = Base3 is a less-based clear theme.
 engine = phptemplate
-name = Base2
+name = Base3
 
 ; Regions =====================================================================
 
