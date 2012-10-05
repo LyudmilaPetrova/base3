@@ -1,0 +1,174 @@
+
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+
+.sf-menu ul {
+	position:		absolute;
+	top:			-999em;
+	width:			10em; /* left offset of submenus need to match (see below) */
+}
+.sf-menu ul li {
+	width:			100%;
+}
+.sf-menu li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+}
+.sf-menu li {
+	float:			left;
+	position:		relative;
+}
+.sf-menu a {
+	display:		block;
+	position:		relative;
+}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	left:			0;
+	top:			@menu-line-height; /* match top ul list item height */
+	z-index:		99;
+}
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left:			10em; /* match ul width */
+	top:			0;
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+	left:			10em; /* match ul width */
+	top:			0;
+}
+
+// SKIN
+
+//Прячем все индикаторы
+.sf-sub-indicator {
+	position:		absolute;
+	display:		block;
+	right:			.75em;
+	top:			1.05em; 
+	width:			10px;
+	height:			10px;
+	text-indent: 	-999em;
+	overflow:		hidden;
+	
+}
+
+@sf-background-color: #f8f7f4;
+@sf-border-color: #ddd2be;
+@sf-active-color: #be2841;
+
+.sf-menu {
+  float: left;
+  padding: 0;
+  
+  line-height: @menu-line-height;
+  
+  li {
+    &.last {
+      border-right: 0;
+    }
+    
+    a {
+      line-height: 12px;
+      margin: 15px 0px;
+      font-size: 12px;
+      .link-color(#555555);
+      padding: 0px 11px;
+      text-decoration: none;
+      text-shadow: #fff 1px 1px 0px;
+      text-transform: uppercase;
+      
+      border-right: 2px solid @sf-border-color;
+      
+      
+      &:hover, &.active, &.active-trail {
+        color: @sf-active-color;
+      }
+    }
+    
+    &.last a {
+      padding-right: 0px;
+      border-right: 0;
+    }
+    
+    ul {
+      .border-radius(0px 0px 4px 4px);
+      padding: 17px 10px 17px 10px;
+      .rgba-background(@sf-background-color, 7);
+      background-image: url(../i/sf-menu-hover-bg.png);
+      background-repeat: no-repeat;
+      background-position: center top;
+    }
+  }
+  
+  li li {
+    
+    &.last {
+      a {
+        span.title {
+          background: none;
+        }
+      }
+    }
+    
+    border-bottom: 1px solid #d2d2d2;
+    
+    &.last {
+      border-bottom: 0;
+    }
+    
+    a {
+      line-height: 1.1;
+      margin: 0px;
+      text-transform: none;
+      border-right: 0;
+      font-size: 13px;
+      padding: 6px 0px;
+      
+      
+      span.title {
+        display: block;
+        padding: 9px 0px;
+        background: url(../i/menu-delim.png) repeat-x left bottom; 
+       
+      }
+      
+      .sf-sub-indicator {
+        position:		absolute;
+        display:		block;
+        right:			19px;
+        top:			10px; 
+        width:			6px;
+        height:			12px;
+        background: url(../i/sub-ind.png) no-repeat left top;
+        text-indent: 	-999em;
+        overflow:		hidden;
+      }
+      
+    }
+    
+    ul {
+      .border-radius(0px 4px 4px 4px);
+      padding: 0px 0px 17px 0px;
+    }
+  }
+  
+  
+  
+  
+}
+
+
+

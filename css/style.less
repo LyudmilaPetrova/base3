@@ -3,6 +3,7 @@
 // Core variables and mixins
 @import "config.less"; // Modify this for custom colors, font-sizes, etc
 
+
 // CSS Utils
 @import "@{frameworkPath}/core/css/utils/reset.less";
 @import "@{frameworkPath}/core/css/utils/clearfix.less";
@@ -78,8 +79,17 @@
 //@import "@{frameworkPath}/jquery-fileinput/css/file-input.less";
 
 
-// -------------------
 
+// -------------------
+// Base3 Drupal theme
+
+// Utils
+@import "utils/macros.less";
+@import "utils/thumbnails.less";
+@import "utils/shadow.less";
+
+@import "@{drupalPath}/style.less";
+@import "@{appPath}/style.less";
 
 //@import "@{appPath}/components/example/css/example.less";
 //@import "@{appPath}/site/css/style.less";

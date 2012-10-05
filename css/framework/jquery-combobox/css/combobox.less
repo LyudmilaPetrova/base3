@@ -1,0 +1,47 @@
+
+.ui-combobox {
+	position: relative;
+	display: inline-block;
+	.ie7-inline-block();
+	padding: 0 10px 0 0;
+
+	input {
+		padding-right: 36px;
+		.border-radius(3px);
+
+		&[readonly] {
+			cursor: pointer;
+		}
+	}
+
+	&.input-mini input       { width: 28px; }
+	&.input-small input      { width: 58px; }
+	&.input-medium input     { width: 118px; }
+	&.input-large input      { width: 178px; }
+	&.input-xlarge input     { width: 238px; }
+	&.input-xxlarge input    { width: 498px; }
+
+	a {
+		position: absolute;
+		top: 1px;
+		bottom: 1px;
+		right: 1px;
+		width: 5px;
+		z-index: 3;
+		border-top: 0;
+		border-bottom: 0;
+		border-right: 0;
+		.border-radius(0 3px 3px 0);
+
+		i {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -2px 0 0 -5px;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-top: 5px solid #999;
+		}
+	}
+
+}

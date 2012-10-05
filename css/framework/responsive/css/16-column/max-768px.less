@@ -1,0 +1,29 @@
+// LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
+// --------------------------------------------------
+@media (max-width: 768px) {
+
+  	// Remove width from containers
+  	.container {
+    	width: auto;
+    	padding: 0 20px;
+  	}
+
+  	// Fluid rows
+  	.row-fluid {
+    	width: 100%;
+  	}
+
+  	// Undo negative margin on rows
+  	.row {
+	    margin-left: 0;
+  	}
+
+  	// Make all columns even
+  	.row > [class*="span"],
+  	.row-fluid > [class*="span"] {
+    	float: none;
+    	display: block;
+    	width: auto;
+    	margin: 0;
+  	}
+}

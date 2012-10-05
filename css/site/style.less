@@ -1,0 +1,23 @@
+@import "layout.less";
+@import "blocks.less";
+@import "node.common.less";
+@import "forms.less";
+@import "superfish.css.less";
+
+.more-link {
+  font-family: Georgia;
+  font-style: italic;
+  font-weight: normal;
+  @color: #be2841;
+  font-size: 13px;
+  text-align: right;
+  padding-right: 14px;
+  background: url(../i/arr-icon.png) no-repeat right center;
+  
+  color: @color;
+  
+  a {
+    text-decoration: none;
+    .link-color(@color, @color - #333);
+  }
+}

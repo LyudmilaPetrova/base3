@@ -1,0 +1,27 @@
+
+.text-block {
+
+	img {
+		margin: @baseLineHeight / 2 @baseLineHeight;
+
+		&.left, &[align="left"] {
+			margin-left: 0;
+		}
+
+		&.right, &[align="right"] {
+			margin-right: 0;
+		}
+	}
+
+	table {
+		.table;
+		.table-bordered;
+		.table-striped;
+		.table-hover;
+
+		&.table-condensed {
+			.table-condensed;
+		}
+	}
+
+}

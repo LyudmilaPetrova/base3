@@ -15,13 +15,12 @@ regions[page_top] = Page top
 regions[page_bottom] = Page bottom
 regions[highlighted] = Highlighted
 
-regions[footer_counters] = Footer counters
 regions[footer_banners] = Footer banners
 regions[ext_left] = Ext Left
 regions[ext_right] = Ext Right
 
 regions[line3] = Line3
-regions[promo_left] = Promo Left
+regions[ext_menu] = Ext Menu
 regions[promo_right] = Promo Right
 
 
@@ -31,7 +30,18 @@ regions[promo_right] = Promo Right
 ;stylesheets[screen][] = css/drupal/drupal.css.less
 ;stylesheets[screen][] = css/main.css.less
 ;stylesheets[screen][] = colorbox/colorbox.css
+
+scripts[] = js/hoverIntent.js
+scripts[] = js/superfish.js
+scripts[] = js/supersubs.js
 scripts[] = js/call.js
 
 stylesheets[all][] = css/style.less
+
+
+
+; Information added by drush on 2012-10-02
+version = "unknown"
+project = "base3"
+datestamp = "1349173050"
 

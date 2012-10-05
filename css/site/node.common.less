@@ -1,0 +1,120 @@
+.submitted {
+  border-top: 1px dashed @grayLighter;
+  line-height: 1.1;
+  padding-top: @baseLineHeight / 2;
+  margin-top: @baseLineHeight / 2;
+  font-size: 12px;
+  color: @grayLight;
+}
+
+h3.node-title {
+  @color: #d06778;
+  color: @color;
+  font-size: 14px;
+  line-height: 1.1;
+  margin-bottom: @baseLineHeight / 2;
+  a {
+    text-decoration: none;
+    .link-color(@color, @color - #333);
+    
+  }
+}
+
+.node.teaser {
+  .submitted {
+    border-top: 0;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: @baseLineHeight / 2;
+    font-size: 12px;
+    color: #997c60;
+  }
+}
+
+.field-name-field-upload {
+  span.file {
+    display: block;
+    
+    overflow: hidden;
+    zoom: 1;
+    margin: @baseLineHeight / 2 0px @baseLineHeight 0px;
+    
+    color: @grayLight;
+    
+    img {
+      margin: 0px 10px 0px 0px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.field-gallery {
+  img {
+    margin: 0px;
+  }
+}
+.node-content { position: relative; .clearfix; }
+.field-image {
+
+  img {
+    border: 2px solid #9b9b9b;
+    
+  }
+}
+
+.node.has-image {
+  .clerfix;
+  
+  .field-image {
+    float: left;
+    font-size: 0px;
+    line-height: 0px;
+  }
+  
+  .node-title,
+  .node-content,
+  .submitted {
+    margin-left: 215px;
+  }
+}
+
+.node-video.teaser2 {
+  width: 220px;
+  height: 145px;
+  position: relative;
+  
+  span.node-title {
+    display: block;
+    position: absolute;
+    .rgba-background(#000,50);
+    width: 100%;
+    height: auto;
+    bottom: 0px;
+    left: 0px;
+    color: white;
+    display: none;
+    font-size: 12px;
+    line-height: 1.1;
+    span {
+      display: block;
+      padding: 4px;
+      
+    }
+  }
+  
+  a {
+    img {
+      opacity: 0.7;
+    }
+    
+    &:hover {
+      img {
+        opacity: 1;
+      }
+      
+      span.node-title {
+        display: block;
+      }
+    }
+  }
+}

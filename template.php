@@ -20,16 +20,16 @@
  */
 function base3_css_alter(&$css) {
   $exclude = array(
-//    'modules/system/system.base.css' => FALSE,
+    'modules/system/system.base.css' => FALSE,
   //  'modules/system/admin.css' => FALSE,
   //  'modules/system/maintenance.css' => FALSE,
   //  'modules/system/system.css' => FALSE,
   //  'modules/system/system.admin.css' => FALSE,
     
   //  'modules/system/system.maintenance.css' => FALSE,
-//    'modules/system/system.menus.css' => FALSE,
+    'modules/system/system.menus.css' => FALSE,
   //  'modules/system/system.messages.css' => FALSE,
-//    'modules/system/system.theme.css' => FALSE,
+    'modules/system/system.theme.css' => FALSE,
   //  'misc/vertical-tabs.css' => FALSE,
   //  'modules/aggregator/aggregator.css' => FALSE,
   //  'modules/block/block.css' => FALSE,
@@ -72,7 +72,6 @@ function base3_preprocess_page(&$vars) {
     $vars['main_content_class'] = 'span12';
   }
   
-  
   $vars['print_link'] = '';
   if(array_key_exists('node', $vars) && strpos($_SERVER["REQUEST_URI"], "print") === false) {
     $vars['print_link'] = print_insert_link();//l("Версия для печати", 'print/'.$vars['node']->nid, array('attributes' => array('class' => array('printer-frendly'))));
@@ -90,6 +89,12 @@ function base3_preprocess_block(&$variables) {
 function base3_preprocess_node(&$variables) {
   $variables['title_attributes_array']['class'][] = "node-title";
   
+  $variables['classes_array'][] = $variables['view_mode'];
+  
+  if(array_key_exists('field_image', $variables['content']) && count($variables['content']['field_image']['#items']) > 0) {   
+   $variables['classes_array'][] = 'has-image';
+  }
+  
   $theme_path = drupal_get_path('theme', 'dao');
   
   $variables['date'] = format_date($variables['node']->created, 'medium');
@@ -103,12 +108,6 @@ function base3_preprocess_node(&$variables) {
   unset($variables['content']['links']['comment']);
 
 }
-
-/*
-function base2_preprocess_maintenance_page(&$variables)
-{
-  $variables['theme_path'] = drupal_get_path('theme', 'dao');
-} */
 
 function base3_preprocess_field(&$vars, $hook) {
   // Add specific suggestions that can override the default implementation.
@@ -150,6 +149,43 @@ function base3_field__image($vars) {
 
   // Render the top-level DIV.
   $output = '<div class="image-field '.$vars['field_name_css'].'">' . $output . '</div>'; 
+
+  return $output;
+}
+
+function base3_field__field_image($vars) {
+  $output = '';
+  
+ // print_r($vars);
+  $vars['element']['#field_name'];
+
+  // Render the label, if it's not hidden.
+  if (!$vars['label_hidden']) {
+    $output .= '<h3>' . $vars['label'] . '</h3>';
+  }
+  
+  if(count($vars['items']) > 1)
+  {
+    
+    // Render the items.
+    $output .= '<ul class="thumbnails">';
+    foreach ($vars['items'] as $delta => $item) {
+      //print_r($item);
+      $output .= '<li>' . drupal_render($item) . '</li>';
+    }
+    $output .= '</ul>';
+  }
+  else
+  {
+    foreach ($vars['items'] as $delta => $item) {
+      $output .= drupal_render($item); 
+    }
+  }
+
+  
+
+  // Render the top-level DIV.
+  $output = '<div class="image-field drop-shadow lifted '.$vars['field_name_css'].'">' . $output . '</div>'; 
 
   return $output;
 }
@@ -206,6 +242,35 @@ function base3_field__text_long($vars) {
 
 
 function base3_menu_link__main_menu($variables) 
+{
+  //print_r($element['#attributes']);
+  
+  $element = $variables['element'];
+  $sub_menu = '';
+  
+ // print_r($element['#attributes']);
+  
+  $attrs = $element['#attributes'];
+  
+  $menu_delim = "";
+  
+  //if(!array_key_exists('last',array_flip($attrs['class'])))
+  //{
+  // // print_r($attrs);
+  //  $menu_delim = "<li class='delim'>/</li>\n";
+  //}
+
+  $item_id = 'mlid-'.$element['#original_link']['mlid'];
+  $element['#localized_options']['attributes']['class'][] = $item_id;
+
+  if ($element['#below']) {
+    $sub_menu = drupal_render($element['#below']);
+  }
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n" . $menu_delim;
+}
+
+function base3_menu_link__menu_ext_menu($variables) 
 {
   //print_r($element['#attributes']);
   
@@ -402,5 +467,42 @@ function base3_button($variables) {
   }
 
   return '<input' . drupal_attributes($element['#attributes']) . ' />';
+}
+
+function base2_field__image($vars) {
+  $output = '';
+  
+ // print_r($vars);
+  $vars['element']['#field_name'];
+
+  // Render the label, if it's not hidden.
+  if (!$vars['label_hidden']) {
+    $output .= '<h3>' . $vars['label'] . '</h3>';
+  }
+  
+  if(count($vars['items']) > 1)
+  {
+    
+    // Render the items.
+    $output .= '<ul class="thumbnails">';
+    foreach ($vars['items'] as $delta => $item) {
+      //print_r($item);
+      $output .= '<li>' . drupal_render($item) . '</li>';
+    }
+    $output .= '</ul>';
+  }
+  else
+  {
+    foreach ($vars['items'] as $delta => $item) {
+      $output .= drupal_render($item); 
+    }
+  }
+
+  
+
+  // Render the top-level DIV.
+  $output = '<div class="image-field '.$vars['field_name_css'].'">' . $output . '</div>'; 
+
+  return $output;
 }
 

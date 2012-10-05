@@ -1,0 +1,159 @@
+.block-style-base {
+  
+  margin-bottom: 20px;
+  
+  .block-title {
+    font-family: Tahoma;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: normal;
+    line-height: 44px;
+    
+    @color: #491123;
+    
+    color: @color;
+    a {
+      .link-color(@color);
+    }
+  }
+  
+}
+
+#block-views-video-block-1,
+#block-views-news-block-2 {
+  .block-style-base;
+  
+}
+
+#block-views-news-block-2 {
+  .view-news  {
+    td {
+      width: 50%;
+      padding-right: 15px;
+    }
+  }
+}
+
+
+
+// Баннеры 
+.view-banners {
+  .views-row {
+    position: relative;
+  }
+  .banner {
+    margin-bottom: 15px;
+  }
+}
+
+// Баннеры 100x50 в подвал 
+.footer .view-banners
+{
+  .banner
+  {
+    float: left;
+    margin: 0px 18px 14px 0px;
+    
+    img {
+      .grayscale;
+    }
+  }
+}
+
+// Ссылка на версию для слабовидящих
+#block-block-2 {
+  font-family: Georgia;
+  font-style: italic;
+  text-align: center;
+  width: 120px;
+  float: right;
+  font-size: 13px;
+  color: #705841;
+  padding: 50px 0px 0px 0px;
+  background: url(../i/poor-vision-icon.png) no-repeat 44px 23px;
+  
+  a {
+    text-decoration: none;
+    .link-color(#705841);
+  }
+}
+
+// Обращение руководителя
+#block-block-1 {
+  float: right;
+  width: 347px;
+  
+  font-family: Georgia;
+  font-size: 14px;
+  font-style: italic;
+  color: #333333;
+  
+  a {
+    text-decoration: underline;
+    .link-color(#333333);
+  }
+  
+  img {
+    border: 1px solid #d3c0ae;
+    margin: -5px 0px @baseLineHeight @baseLineHeight;
+  }
+}
+
+// Копирайты в футере
+#block-block-3 {
+  color: #6f6f6f;
+  font-family: Tahoma;
+  font-size: 12px;
+}
+
+// Дополнительное меню под шапкой сайта
+#block-menu-menu-ext-menu {
+  @color: #705841;
+  font-family: Tahoma;
+  font-size: 14px;
+  margin: 20px 0px 20px 30px;
+  
+  color: @color;
+  
+  a {
+    text-decoration: none;
+    .link-color(@color);
+  }
+  
+  ul {
+    overflow: hidden;
+    zoom: 1;
+    
+    li {
+      float: left;
+      padding: 0px 25px;
+      
+      a {
+        display: block;
+        line-height: 30px;
+        padding-left: 30px;
+        background-position: left center;
+        background-repeat: no-repeat;
+        
+        &.mlid-496 {
+          background-image: url(../i/parlament-icon.png);
+        }
+        
+        &.mlid-497 {
+          background-image: url(../i/priemnaya-icon.png);
+        }
+        
+        &.mlid-498 {
+          background-image: url(../i/week-icon.png);
+        }
+        
+        &.mlid-499 {
+          background-image: url(../i/photo-gallery-icon.png);
+        }
+        
+      }
+    }
+  }
+  
+  
+}

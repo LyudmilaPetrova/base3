@@ -67,121 +67,95 @@
  * @see template_process()
  */
 ?>
-<div id="pageWrapper">
-  <header class="page-header">
-    <div class="container">
-	  <?php if ($logo): ?>
-        <a href="<?php print $front_page; ?>" title="<?php print t($site_name); ?>" id="logo">
-          <img src="<?php print $logo; ?>" alt="<?php print $site_name; ?>" />
-          <?php if ($site_slogan): ?>
-            <span class="site-slogan"><?php print $site_slogan; ?></span>
-          <?php endif; ?>
-          <span class="site-name"><?php print $site_name; ?></span>
-          
-        </a>
-        
-        
-    <?php endif; ?>
-    <?php print render($page['header']); ?>
-
-    <?php
-      $tree = menu_tree_all_data('main-menu', NULL, 2);
-      $tree = menu_tree_output($tree);
-
-      foreach ($tree as $id => $item) {
-        if (is_int($id)) {
-          $tree[$id]['#title'] = str_replace(array(' ', '-'), array('||||', '-||||'), $item['#title']);
-        }
-      }
-
-      foreach($tree as $key => $val)
-       {
-         if(is_array($val) && intval($key) > 0)
-         {
-           $tree[$key]['#theme'] = 'main_menu_link';
-         }
-       }
-
-      $menu = drupal_render($tree);
-      print str_replace('||||', '<br/>', $menu);
-    ?>
-    </div>
-  </header>
-
-<div class="container">
-  
-  <?php if ($page['promo_left'] || $page['promo_right']):  ?>
-    <div class="promo_wrapper">
-      <?php print render($page['promo_left']); ?>
-      <?php print render($page['promo_right']); ?>
-    </div>
-  <?php endif; ?>
-  
-    <!-- Grid system
-  ================================================== -->
-  <section id="gridSystem">
-    <div class="row">
-      <?php if ($page['sidebar_first']): ?>
-        <div class="span4"><?php print render($page['sidebar_first']); ?></div>
-      <?php endif; ?>
-      
-      <div class="<?php print $main_content_class; ?>">
-        <?php if ($breadcrumb): ?>
-          <?php print $breadcrumb; ?>
+<div class="wrapper">
+  <div class="header clearfix">
+    <div class="top-line">
+      <div class="in">
+        <?php if(module_exists('search')): ?>
+        <div class="search-block">
+          <?php 
+            $block = module_invoke('search', 'block_view', 'search');
+            print render($block);
+          ?>
+        </div>
         <?php endif; ?>
-
-        <?php print $messages; ?>
-        
-        
-          
-        <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
-        <?php print render($title_prefix); ?>
-        <?php print $print_link; ?>
-        <?php if ($title && !$is_front): ?><h1 class="page-title"><?php print $title; ?></h1><?php endif; ?>
-        <?php print render($title_suffix); ?>
-        <?php //print_r($tabs); ?>
-        <?php if ($tabs['#primary']): ?><div class="system-tabs"><?php print render($tabs); ?></div><?php endif; ?>
-        <?php print render($page['help']); ?>
-        
-        <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-        <?php print render($page['content']); ?>     
-        
-        <?php //print $feed_icons; ?>
       </div>
-      
-      <?php if ($page['sidebar_second']): ?>
-        <div class="span4"><?php print render($page['sidebar_second']); ?></div>
+    </div><!--/.top-line-->
+    <div class="in">
+    <?php if ($logo): ?>
+      <a href="<?php print $front_page; ?>" title="<?php print $front_page; ?>" id="logo">
+        <img src="<?php print $logo; ?>" alt="<?php print $site_name; ?>" />
+      </a>
+     
       <?php endif; ?>
+    <?php print render($page['header']); ?>
     
-    </div><!--/.row-->
+      <div class="menu-line">
+    
+        <?php
+       /*
+          $tree = menu_tree_page_data('main-menu', 2);
+          $tree = menu_tree_output($tree);
+          print drupal_render($tree); */
+          
+          $tree = menu_tree('main-menu');
+          $tree['#theme_wrappers'][0] = 'sf_menu_tree';
+          print drupal_render($tree);
+          
+        ?>
+        
+        
+      </div><!--/.menu-line-->
+    </div><!--/.in-->
+  </div> <!-- /.header -->
+  <div class="all-content-wrapper">
 
-  </section>
   
-  <?php if ($page['line3']) print render($page['line3']); ?>
-  
-  <?php if($page['ext_left'] || $page['ext_right']): ?>
-    <div id="extWrapper">
-      <?php if ($page['ext_left']) print render($page['ext_left']); ?>
-      <?php if ($page['ext_right']) print render($page['ext_right']); ?>
-    </div>
+  <?php if($messages): ?>
+    <div class="in"><?php print $messages; ?></div>
   <?php endif; ?>
+  <div class="in">
+    <?php print render($page['ext_menu']); ?>
+    
+  <?php //print $breadcrumb; ?>
+  <div id="mainContentWrapper">
+    <div class="center-content" >
+      <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
+      <?php print render($title_prefix); ?>
+      <?php if ($title && !$is_front): ?><h1 class="page-title"><?php print $title; ?></h1><?php endif; ?>
+      <?php print render($title_suffix); ?>
+      <?php //print_r($tabs); ?>
+      <?php if ($tabs['#primary']): ?><div class="system-tabs"><?php print render($tabs); ?></div><?php endif; ?>
+      <?php print render($page['help']); ?>
+      <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+        <?php print render($page['content']); ?>
+
+      <?php print $feed_icons; ?>
+    </div><!-- /.center-content -->
+  </div><!--/#contentWrapper-->    
+     
+    <?php if ($page['sidebar_second']): ?>
+      <?php print render($page['sidebar_second']); ?>
+    <?php endif; ?>
+    
+    <?php if ($page['sidebar_first']): ?>
+      <?php print render($page['sidebar_first']); ?>
+    <?php endif; ?>
+  </div><!--/.in -->
   
-  <?php if ($page['footer_banners']) print render($page['footer_banners']); ?>
+  </div><!--/.all-content-wrapper-->
 
- <!-- Footer
-  ================================================== -->
-  <footer class="footer">
+ 
+<div class="footer-null"></div>
+<div class="footer">
+  <div class="in">
+    <?php print render($page['footer_banners']); ?>
+    <div class="footer-right">
+      <?php print render($page['footer']); ?>
+      <div class="seenta">Создание сайта &mdash; веб-студия «<a href="http://seenta.ru/">Seenta</a>»</div> 
+    </div><!-- /.footer-right -->    
+       
+  </div><!--/.in -->
+</div><!-- /.footer -->
 
-    <?php print render($page['footer']); ?>
-    
-    <div class="seenta">
-      <a href="http://seenta.ru">Создание сайта</a>&nbsp;&mdash;<br />
-      Веб-студия Seenta.ru
-    </div><!-- /.seenta -->
-    
-    <?php print render($page['footer_counters']); ?>
-  </footer>
-
-</div><!-- /container -->
-</div><!-- /#page-wrapper -->
-
+</div> <!-- /.wrapper -->

@@ -80,13 +80,18 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   
-  <?php if( array_key_exists('field_main_image', $content) && $content['field_main_image']): ?>
-    <?php hide($content['field_main_image']); ?>
-    <?php print render($content['field_main_image']); ?>
+  <?php if( array_key_exists('field_image', $content) && $content['field_image']): ?>
+    <?php hide($content['field_image']); ?>
+    <?php print render($content['field_image']); ?>
   <?php endif; ?>
   
   <?php print $user_picture; ?>
-
+  <?php if ($display_submitted && !$page): ?>
+    <div class="submitted">
+      <?php print $submitted; ?>
+    </div>
+  <?php endif; ?>
+  
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
     <h3<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>
@@ -104,7 +109,7 @@
   
   <?php print render($content['links']); ?>
   
-  <?php if ($display_submitted): ?>
+  <?php if ($display_submitted && $page): ?>
     <div class="submitted">
       <?php print $submitted; ?>
     </div>
