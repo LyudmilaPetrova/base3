@@ -71,6 +71,7 @@
   <div class="header clearfix">
     <div class="top-line">
       <div class="in">
+        <?php print $print_link; ?>
         <?php if(module_exists('search')): ?>
         <div class="search-block">
           <?php 
